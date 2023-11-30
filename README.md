@@ -355,4 +355,249 @@ add a event lister to listen the click of check mark which will invoke the toggl
 <span @click.stop="toggleCompleted(todo.id)">&#10004;</span>
 ```
 
+## Deleting state from the store. 
+<br>
+we already write the delete action in store, 
+<br>
+
+```
+deleteTodo(itemId) {
+      this.todoList = this.todoList.filter((object) => {
+        return object.id !== itemId
+      })
+    },
+    
+```
+<br>
+now import that in toDoList.vue, and add a event lister which also invoke the delete function:
+<br>
+
+```
+<span @click="deleteTodo(todo.id)" class="x">&#10060;</span>
+
+```
+DONE!!!!!!
+
+```
+<!-- main.js -->
+
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import App from './App.vue'
+
+const app = createApp(App)
+
+app.use(createPinia())
+
+app.mount('#app')
+
+```
+
+<br>
+
+```
+<!-- App.vue -->
+
+<script setup>
+import TodoApp from './components/TodoApp.vue'
+</script>
+
+<template>
+  <todo-app />
+</template>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+#app {
+  background-color: #597d9a;
+  display: flex;
+  justify-content: center;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
+</style>
+
+```
+<br>
+
+```
+<!-- TodoApp.vue -->
+
+<script setup>
+import TodoForm from './TodoForm.vue'
+import TodoList from './TodoList.vue'
+</script>
+
+<template>
+  <div class="todo-app">
+    <h1>To Do List</h1>
+    <todo-form />
+    <todo-list />
+  </div>
+</template>
+
+<style scoped>
+.todo-app {
+  padding: 5vh;
+  min-height: 100vh;
+  width: 30vw;
+  background-color: #f7f9fc;
+}
+</style>
+
+```
+<br>
+
+```
+<!-- TodoForm.vue -->
+
+<script setup>
+import { ref } from 'vue'
+import { useTodoListStore } from '@/stores/todoList'
+
+const todo = ref('')
+
+const store = useTodoListStore()
+
+function addItemAndClear(item) {
+  if (item.length === 0) {
+    return
+  }
+  // invokes function in the store:
+  store.addTodo(item)
+  todo.value = ''
+}
+
+</script>
+
+<template>
+  <div>
+    <form @submit.prevent="addItemAndClear(todo)">
+      <input v-model="todo" type="text" /><button>Add</button>
+    </form>
+  </div>
+</template>
+
+<style scoped>
+form {
+  margin-bottom: 15px;
+}
+input {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  height: 20px;
+  width: 50%;
+}
+button {
+  margin-left: 30px;
+  background-color: #2f6089;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 800;
+  color: white;
+  width: 15%;
+}
+.alert-div {
+  min-height: 25px;
+}
+.alert {
+  color: #d1495b;
+  font-size: 1em;
+  font-weight: 600;
+}
+</style>
+
+```
+
+<br>
+
+```
+<!-- TodoList.vue -->
+
+<script setup>
+import { useTodoListStore } from '@/stores/todoList'
+import { storeToRefs } from 'pinia'
+
+const store = useTodoListStore()
+
+// storeToRefs lets todoList keep reactivity:
+const { todoList } = storeToRefs(store)
+
+// destructuring action method doesn't require using storeToRefs:
+const { toggleCompleted, deleteTodo } = store
+
+</script>
+
+<template>
+  <div v-for="todo in todoList" :key="todo.id" class="item">
+    <div class="content">
+      <span :class="{ completed: todo.completed }">{{ todo.item }}</span>
+      <div>
+        <span @click.stop="toggleCompleted(todo.id)">&#10004;</span>
+        <span @click="deleteTodo(todo.id)" class="x">&#10060;</span>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+span {
+  margin: 0 10px;
+  cursor: pointer;
+}
+.item {
+  display: flex;
+  justify-content: center;
+}
+.content {
+  display: flex;
+  font-size: 1.5em;
+  justify-content: space-between;
+  width: 80vw;
+  padding: 5px;
+}
+.completed {
+  text-decoration: line-through;
+}
+</style>
+
+```
+<br>
+
+```
+<!-- Store/ todoList.js -->
+
+import { defineStore } from 'pinia'
+
+export const useTodoListStore = defineStore('todoList', {
+  state: () => ({
+    todoList: [],
+    id: 0
+  }),
+  actions: {
+    addTodo(item) {
+      this.todoList.push({ item, id: this.id++, completed: false })
+    },
+    deleteTodo(itemId) {
+      this.todoList = this.todoList.filter((object) => {
+        return object.id !== itemId
+      })
+    },
+    toggleCompleted(idToFind) {
+      const todo = this.todoList.find((obj) => obj.id === idToFind)
+      if (todo) {
+        todo.completed = !todo.completed
+      }
+    }
+  }
+})
+
+```
 
