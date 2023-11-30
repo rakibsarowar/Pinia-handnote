@@ -134,7 +134,7 @@ export const useTodoListStore = defineStore('todoList', {
   })
 })
 ```
-## Mutating state with action:
+## Mutating state with action (Create):
 <br>
 1. now create action: where we will add toDO item into the state,
 
@@ -173,6 +173,32 @@ deleteTodo(itemId) {
         return object.id !== itemId
       })
     }
+
+```
+<br>
+
+Final all codes:
+<br>
+
+```
+import { defineStore } from 'pinia'
+
+export const useTodoListStore = defineStore('todoList', {
+  state: () => ({
+    todoList: [],
+    id: 0
+  }),
+  actions: {
+    addTodo(item) {
+      this.todoList.push({ item, id: this.id++, completed: false })
+    },
+    deleteTodo(itemId) {
+      this.todoList = this.todoList.filter((object) => {
+        return object.id !== itemId
+      })
+    },
+  }
+})
 
 ```
 
@@ -235,7 +261,7 @@ function addItemAndClear(item) {
   todo.value = ''
 } 
 ```
-- then we add the funciton in the form submit handler:
+- then we add the function in the form submit handler:
 
 ```
 <form 
@@ -243,6 +269,90 @@ function addItemAndClear(item) {
 > 
 <from/>
 
+```
+<br>
+
+## Reactive Properties in Pinia (Write):
+<br>
+Now go to TodoList.Vue.
+1. import store:
+<br>
+
+```
+import { useTodoListStore } from '@/stores/todoList'
+const store = useTodoListStore()
+
+```
+<br>
+
+2. **StoreToRefs**
+<br>
+we will import that storeToRefs: its help to bring property from the store with ensuring reactivity each item. 
+<br>
+
+```
+// storeToRefs lets todoList keep reactivity:
+const { todoList } = storeToRefs(store)
+
+```
+<br>
+now render the code in <template>
+<br>
+
+```
+<script setup>
+import { useTodoListStore } from '@/stores/todoList'
+import { storeToRefs } from 'pinia'
+
+const store = useTodoListStore();
+
+// storeToRefs lets todoList keep reactivity:
+const { todoList } = storeToRefs(store)
+
+// destructuring action method doesn't require using storeToRefs:
+const { toggleCompleted } = store
+
+</script>
+
+<template>
+  <div v-for="todo in todoList" :key="todo.id" class="list">
+    <div class="item">
+      <span :class="{ completed: todo.completed }">{{ todo.item }}</span>
+      <span @click.stop="toggleCompleted(todo.id)">&#10004;</span>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+.completed {
+  text-decoration: line-through;
+}
+</style>
+
+```
+<br>
+Now go to store.js and remember that we use ``` completed: false ``` in action.
+we want to check the id and find the item is completed or not completed. 
+
+```
+    toggleCompleted(idToFind) {
+      const todo = this.todoList.find((obj) => obj.id === idToFind);
+      if (todo) {
+        todo.completed = !todo.completed
+      }
+    }
+
+```
+<br>
+Now again go to the TodoList.vue,
+<br>
+import the toggleCompleted action. 
+add a event lister to listen the click of check mark which will invoke the toggle action in store. 
+
+<br>
+
+```
+<span @click.stop="toggleCompleted(todo.id)">&#10004;</span>
 ```
 
 
