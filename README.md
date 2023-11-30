@@ -29,12 +29,19 @@
 - [🌴 Showing data from Object](#-showing-data-from-object)
 
 ## Pattern for State management:
-**Vue Vs Pinia** <br>
+**Vue Vs Pinia** 
+<br>
+<br>
+
 <img src="./asset/mis-01.JPG" />
+
 - Vue use ``` data: {} ``` for storing data, on the other hand pinia use ``` state: {} ```
 <br>
+
 - Vue use ``` methods: {} ``` for updating data of local state , on the other hand pinia use ``` actions: {} ```
+
 <br>
+
 - Vue use ``` computed: {} ``` for returning process version data without effecting original data, on the other hand pinia use ``` state: {} ```
 <br>
 
