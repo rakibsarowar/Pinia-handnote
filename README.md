@@ -22,11 +22,10 @@
 
 ## Table of Contents
 
-- [🌴 For setting up the project](#-for-setting-up-the-project)
-- [🌴 Setting up the development environment](#-setting-up-the-development-environment)
-- [🌴 Project structure](#-project-structure)
-- [🌴 Showing Data from variable to template](#-showing-data-from-variable-to-template)
-- [🌴 Showing data from Object](#-showing-data-from-object)
+- [🌴 Pattern for State management:](#-pattern-for-state-management)
+- [🌴 What is a Store?](#-what-is-a-store)
+- [🌴 When should I use a Store]()
+
 
 ## 🌴 Pattern for State management:
 **Vue Vs Pinia** 
