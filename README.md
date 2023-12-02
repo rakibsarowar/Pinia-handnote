@@ -28,32 +28,27 @@
 - [🌴 Showing Data from variable to template](#-showing-data-from-variable-to-template)
 - [🌴 Showing data from Object](#-showing-data-from-object)
 
-## Pattern for State management:
+## 🌴 Pattern for State management:
 **Vue Vs Pinia** 
 <br>
-<br>
-
 <img src="./asset/mis-01.JPG" />
 
 - Vue use ``` data: {} ``` for storing data, on the other hand pinia use ``` state: {} ```
-<br>
 
 - Vue use ``` methods: {} ``` for updating data of local state , on the other hand pinia use ``` actions: {} ```
 
-<br>
-
 - Vue use ``` computed: {} ``` for returning process version data without effecting original data, on the other hand pinia use ``` state: {} ```
 <br>
-
+**Pinia Process**
 <img src="./asset/mis-02.JPG" />
 
-## What is a Store?
+## 🌴 What is a Store?
 <br>
 A Store (like Pinia) is an entity holding state and business logic that isn't bound to your Component tree. In other words, it hosts global state. It's a bit like a component that is always there and that everybody can read off and write to. It has three concepts, the state, getters and actions and it's safe to assume these concepts are the equivalent of data, computed and methods in components.
 
 <br>
 
-## When should I use a Store
+## 🌴 When should I use a Store
 <br>
 
 A store should contain data that can be accessed throughout your application. This includes data that is used in many places, e.g. User information that is displayed in the navbar, as well as data that needs to be preserved through pages, e.g. a very complicated multi-step form.
@@ -62,10 +57,10 @@ On the other hand, you should avoid including in the store local data that could
 
 Not all applications need access to a global state, but if yours need one, Pinia will make your life easier.
 
-**Learning By Project** 
+## 🌴 Learning By Project 
 ## Installation:  
 <br>
-01: 
+🌿 Step 01: 
 Install pinia:
 <br>
 
@@ -78,7 +73,7 @@ npm install pinia
 
 ```
 <br>
-Create a pinia instance (the root store) and pass it to the app as a plugin:
+🌿 Step 02: Create a pinia instance (the root store) and pass it to the app as a plugin:
 <br>
  
 ```
@@ -97,7 +92,7 @@ app.mount('#app')
 ```
 <br>
 
-## Creating First Store:
+## 🌴 Creating First Store:
 
 <br>
 01: create components of TodoAPP.vue, TodoForm.vue, TodoList.vue.
