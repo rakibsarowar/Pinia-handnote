@@ -60,8 +60,8 @@ Not all applications need access to a global state, but if yours need one, Pinia
 ## 🌴 Learning By Project 
 ## Installation:  
 <br>
-🌿 Step 01: 
-Install pinia:
+
+🌿 **Step 01: Install pinia**
 <br>
 
 ```
@@ -73,7 +73,8 @@ npm install pinia
 
 ```
 <br>
-🌿 Step 02: Create a pinia instance (the root store) and pass it to the app as a plugin:
+
+🌿 **Step 02: Create a pinia instance (the root store) and pass it to the app as a plugin**
 <br>
  
 ```
@@ -95,12 +96,11 @@ app.mount('#app')
 ## 🌴 Creating First Store:
 
 <br>
-01: create components of TodoAPP.vue, TodoForm.vue, TodoList.vue.
-02: import TodoForm.vue, TodoList.vue. in TodoApp.Vue.
-03: and import TodoApp.vue in App.vue. and delete every thing of App.Vue rest.
 
-04 Store Create:
-create stores folder and create in the todoList.js
+🌿 **Step 01: Now create components of TodoAPP.vue, TodoForm.vue, TodoList.vue.**
+🌿 **Step 02: import TodoForm.vue, TodoList.vue. in TodoApp.Vue.**
+🌿 **Step 03: and import TodoApp.vue in App.vue. and delete every thing of App.Vue rest.**
+🌿 **Step 04 Store Create: create stores folder and create in the todoList.js**
 <br>
 
 ```
@@ -115,7 +115,8 @@ export const useTodoListStore = defineStore('todoList', {
 
 ```
 <br>
-now create Global state object ``` state: () => ({ todoList: []}) ```
+
+🌿 **Step 05: now create Global state object** ``` state: () => ({ todoList: []}) ```
 <br>
 And final code will be like below,
 <Br>
@@ -129,9 +130,10 @@ export const useTodoListStore = defineStore('todoList', {
   })
 })
 ```
-## Mutating state with action (Create):
+## 🌴 Mutating state with action (Create):
 <br>
-1. now create action: where we will add toDO item into the state,
+
+🌿 **Step 1: now create action: where we will add toDO item into the state,**
 
 ```
 actions: {
@@ -141,7 +143,8 @@ actions: {
 }
 ```
 <br>
-2. also add id:0 property to the state: Since we want to has id in each item while increment in pushing into the array. 
+
+🌿 **Step 02: also add id:0 property to the state: Since we want to has id in each item while increment in pushing into the array.** 
 <br>
 
 ```
@@ -156,11 +159,13 @@ export const useTodoListStore = defineStore('todoList', {
 ```
 
 <br>
-3. and each toDo will start out as incomplete  ``` completed: false ```
+
+🌿 **Step 03: and each toDo will start out as incomplete**  ``` completed: false ```
 <br>
 <img src="./asset/ToDo-02.JPG" />
 <br>
-4. we can also write to action for deleting item by filtering the id on the toDo object. 
+
+🌿 **Step 04: we can also write to action for deleting item by filtering the id on the toDo object.** 
 
 ```
 deleteTodo(itemId) {
