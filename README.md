@@ -24,7 +24,13 @@
 
 - [🌴 Pattern for State management:](#-pattern-for-state-management)
 - [🌴 What is a Store?](#-what-is-a-store)
-- [🌴 When should I use a Store]()
+- [🌴 When should I use a Store](#-when-should-i-use-a-store)
+- [Learning By Project](#-learning-by-project)
+  -[Installation](#installation)
+  - [🌴 Creating First Store](#-creating-first-store)
+  - [🌴 Mutating state with action (Create)](#-mutating-state-with-action-create)
+  - [🌴 Reactive Properties in Pinia (Write)](#-reactive-properties-in-pinia-write)
+  - [🌴 Deleting state from the store](#deleting-state-from-the-store)
 
 
 ## 🌴 Pattern for State management:
@@ -38,6 +44,7 @@
 
 - Vue use ``` computed: {} ``` for returning process version data without effecting original data, on the other hand pinia use ``` state: {} ```
 <br>
+
 **Pinia Process**
 <img src="./asset/mis-02.JPG" />
 
@@ -57,7 +64,7 @@ On the other hand, you should avoid including in the store local data that could
 Not all applications need access to a global state, but if yours need one, Pinia will make your life easier.
 
 ## 🌴 Learning By Project 
-## Installation:  
+## Installation  
 <br>
 
 🌿 **Step 01: Install pinia**
@@ -271,7 +278,7 @@ function addItemAndClear(item) {
 ```
 <br>
 
-## Reactive Properties in Pinia (Write):
+## 🌴 Reactive Properties in Pinia (Write):
 <br>
 Now go to TodoList.Vue.
 1. import store:
