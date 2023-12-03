@@ -108,7 +108,7 @@ app.mount('#app')
 🌿 **Step 01: Now create components of TodoAPP.vue, TodoForm.vue, TodoList.vue.** <br>
 🌿 **Step 02: import TodoForm.vue, TodoList.vue. in TodoApp.Vue.** <br>
 🌿 **Step 03: and import TodoApp.vue in App.vue. and delete every thing of App.Vue rest.** <br>
-🌿 **Step 04 Store Create: create stores folder and create in the todoList.js** <br>
+🌿 **Step 04 Store Create: create stores folder and create in the todoList.js**
 <br>
 
 ```
