@@ -7,7 +7,8 @@
 > A hand note of Pinia journey.....
 
 <br>
-
+<div align=center>
+  
 | Key Note                    |                      |                |                       |
 |-----------------------------|----------------------|----------------|-----------------------|
 | **Emoji**                    | **Description**          | **Emoji**   | **Description**       |
@@ -17,6 +18,7 @@
 | 🍂                           | **Attention Note**   | ✋             | **Stop! check the point** |
 | 🏷️                          | **Regular Note**     | 🎯             | **Focus**             |
 
+</div>
 
 <!-- NO COMMENT -->
 
