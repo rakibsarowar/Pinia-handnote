@@ -28,7 +28,7 @@
 - [🌴 What is a Store?](#-what-is-a-store)
 - [🌴 When should I use a Store](#-when-should-i-use-a-store)
 - [Learning By Project](#-learning-by-project)
-  -[Installation](#installation)
+  - [🌴 Installation](#-installation)
   - [🌴 Creating First Store](#-creating-first-store)
   - [🌴 Mutating state with action (Create)](#-mutating-state-with-action-create)
   - [🌴 Reactive Properties in Pinia (Write)](#-reactive-properties-in-pinia-write)
@@ -36,7 +36,10 @@
 
 
 ## 🌴 Pattern for State management:
+<div align=center>
 **Vue Vs Pinia** 
+</div>
+
 <br>
 <img src="./asset/mis-01.JPG" />
 
@@ -47,7 +50,7 @@
 - Vue use ``` computed: {} ``` for returning process version data without effecting original data, on the other hand pinia use ``` state: {} ```
 <br>
 
-**Pinia Process**
+<div align=center> **Pinia Process** </div>
 <img src="./asset/mis-02.JPG" />
 
 ## 🌴 What is a Store?
@@ -66,7 +69,7 @@ On the other hand, you should avoid including in the store local data that could
 Not all applications need access to a global state, but if yours need one, Pinia will make your life easier.
 
 ## 🌴 Learning By Project 
-## Installation  
+## 🌴 Installation:  
 <br>
 
 🌿 **Step 01: Install pinia**
@@ -152,7 +155,7 @@ actions: {
 ```
 <br>
 
-🌿 **Step 02: also add id:0 property to the state: Since we want to has id in each item while increment in pushing into the array.** 
+🌿 **Step 02: also add id:0 property to the state: Since we want to has id in each item while increment in pushing into the array,** 
 <br>
 
 ```
@@ -170,6 +173,7 @@ export const useTodoListStore = defineStore('todoList', {
 
 🌿 **Step 03: and each toDo will start out as incomplete**  ``` completed: false ```
 <br>
+
 <img src="./asset/ToDo-02.JPG" />
 <br>
 
@@ -211,7 +215,8 @@ export const useTodoListStore = defineStore('todoList', {
 ```
 
 <br>
-5. Now create simple form: 
+
+🌿 **5. Now create simple form:** 
 <br>
 
 ```
@@ -244,7 +249,7 @@ function addItemAndClear(item) {
 </style>
 ```
 <br>
-- in here we use ``` ref('') ``` to reactive the form. which will update the value of the user types in the input. 
+- ✋ in here we use ``` ref('') ``` to reactive the form. which will update the value of the user types in the input. <br>
 - now we have to access the store so we use:
 <br>
 
@@ -282,8 +287,9 @@ function addItemAndClear(item) {
 
 ## 🌴 Reactive Properties in Pinia (Write):
 <br>
-Now go to TodoList.Vue.
-1. import store:
+Now go to TodoList.Vue. <br>
+
+🌿 **1. import store:**
 <br>
 
 ```
@@ -293,7 +299,7 @@ const store = useTodoListStore()
 ```
 <br>
 
-2. **StoreToRefs**
+🌿 2. **StoreToRefs**
 <br>
 we will import that storeToRefs: its help to bring property from the store with ensuring reactivity each item. 
 <br>
@@ -363,7 +369,7 @@ add a event lister to listen the click of check mark which will invoke the toggl
 <span @click.stop="toggleCompleted(todo.id)">&#10004;</span>
 ```
 
-## Deleting state from the store. 
+## 🌴 Deleting state from the store. 
 <br>
 we already write the delete action in store, 
 <br>
