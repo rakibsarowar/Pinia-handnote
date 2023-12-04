@@ -37,11 +37,12 @@
 
 ## 🌴 Pattern for State management:
 <div align=center>
+  
 **Vue Vs Pinia** 
-</div>
 
 <br>
 <img src="./asset/mis-01.JPG" />
+</div>
 
 - Vue use ``` data: {} ``` for storing data, on the other hand pinia use ``` state: {} ```
 
