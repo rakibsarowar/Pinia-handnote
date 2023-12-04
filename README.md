@@ -51,8 +51,12 @@
 - Vue use ``` computed: {} ``` for returning process version data without effecting original data, on the other hand pinia use ``` state: {} ```
 <br>
 
-<div align=center> **Pinia Process** </div>
-<img src="./asset/mis-02.JPG" />
+<div align=center> 
+  
+  **Pinia Process** 
+  <img src="./asset/mis-02.JPG" />
+</div>
+
 
 ## 🌴 What is a Store?
 <br>
