@@ -22,7 +22,9 @@
 
 <!-- NO COMMENT -->
 
-## Table of Contents
+<details>
+
+<summary><b> ##Expand Table of Contents </b></summary>
 
 - [🌴 Pattern for State management:](#-pattern-for-state-management)
 - [🌴 What is a Store?](#-what-is-a-store)
@@ -34,7 +36,8 @@
   - [🌴 Reactive Properties in Pinia (Write)](#-reactive-properties-in-pinia-write)
   - [🌴 Deleting state from the store](#deleting-state-from-the-store)
 
-
+  </details>
+   
 ## 🌴 Pattern for State management:
 <div align=center>
   
